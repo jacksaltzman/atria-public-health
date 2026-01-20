@@ -7,15 +7,15 @@
    CSS VARIABLES
    -------------------------------------------- */
 :root {
-    /* Primary Colors - Atria Brand Inspired */
-    --color-primary: #0D5C63;
-    --color-primary-dark: #094147;
-    --color-primary-light: #0F7178;
+    /* Primary Colors - Atria Brand Green */
+    --color-primary: #3D5A4A;
+    --color-primary-dark: #2E4639;
+    --color-primary-light: #4A6B58;
 
-    /* Secondary / Accent Colors */
-    --color-accent: #E85D04;
-    --color-accent-light: #F48C06;
-    --color-accent-dark: #DC2F02;
+    /* Secondary / Accent Colors - Using Atria Green */
+    --color-accent: #3D5A4A;
+    --color-accent-light: #4A6B58;
+    --color-accent-dark: #2E4639;
 
     /* Neutrals */
     --color-white: #FFFFFF;
@@ -233,7 +233,7 @@ address {
 }
 
 .section-header--light .section-label {
-    color: var(--color-accent-light);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .section-header--light .section-title {
@@ -279,6 +279,8 @@ address {
 .logo-img {
     height: 40px;
     width: auto;
+    max-width: 100%;
+    object-fit: contain;
     filter: brightness(0) invert(1);
     transition: filter var(--transition-base);
 }
@@ -288,6 +290,7 @@ address {
 }
 
 .logo--footer .logo-img {
+    height: 50px;
     filter: brightness(0) invert(1);
 }
 
@@ -491,20 +494,9 @@ address {
     box-shadow: var(--shadow-lg);
 }
 
-.value-icon {
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--space-lg);
-}
-
 .value-card h3 {
-    font-size: var(--font-size-lg);
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-xl);
     font-weight: 600;
     color: var(--color-gray-900);
     margin-bottom: var(--space-sm);
@@ -536,11 +528,29 @@ address {
     border-radius: var(--radius-lg);
     backdrop-filter: blur(10px);
     transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
 }
 
 .stat-card:hover {
     background-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-4px);
+}
+
+.stat-card .stat-number,
+.stat-card .stat-value {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-card .stat-value {
+    display: inline-flex;
+}
+
+.stat-value {
+    display: inline-block;
 }
 
 .stat-number {
@@ -549,21 +559,27 @@ address {
     color: var(--color-white);
     line-height: 1;
     display: inline;
+    font-variant-numeric: tabular-nums;
 }
 
 .stat-suffix {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-5xl);
     font-weight: 700;
     color: var(--color-white);
+    display: inline;
+    vertical-align: baseline;
 }
 
 .stat-label {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--color-accent-light);
-    margin-top: var(--space-md);
+    color: var(--color-white);
+    margin-top: var(--space-sm);
     margin-bottom: var(--space-sm);
+    min-height: 56px;
 }
 
 .stat-desc {
@@ -600,16 +616,21 @@ address {
 }
 
 .program-image {
-    height: 200px;
+    height: 240px;
+    min-height: 240px;
+    max-height: 240px;
     background-color: var(--color-gray-100);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
-.program-image-placeholder {
-    color: var(--color-primary);
-    opacity: 0.5;
+.program-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .program-content {
@@ -623,7 +644,7 @@ address {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--color-accent);
-    background-color: rgba(232, 93, 4, 0.1);
+    background-color: rgba(61, 90, 74, 0.1);
     padding: var(--space-xs) var(--space-md);
     border-radius: var(--radius-full);
     margin-bottom: var(--space-md);
