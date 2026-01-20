@@ -289,6 +289,10 @@ address {
     filter: none;
 }
 
+.logo--footer {
+    align-items: flex-start;
+}
+
 .logo--footer .logo-img {
     height: 50px;
     filter: brightness(0) invert(1);
